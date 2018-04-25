@@ -1,0 +1,21 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# Admin
+admin_login:
+  path: /admin/login
+  controller: App\Controller\SecurityController::login
+admin_login_check:
+  path: /admin/login_check
+  controller: App\Controller\SecurityController::check
+admin_logout:
+  path: /admin/logout
+  controller: App\Controller\SecurityController::logout
+admin_register:
+  path: /admin/register
+  controller: App\Controller\RegistrationController::admin_register
+
+index:
+  path: /admin/index
+  controller: App\Controller\UserController::index

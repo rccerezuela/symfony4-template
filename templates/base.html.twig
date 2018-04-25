@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Nozzeo {% block title %}{% endblock %}</title>
+	
+	<link rel="stylesheet" href="{{ asset('build/css/main.css') }}" />
+	<link rel="stylesheet" href="{{ asset('build/css/semantic.min.css') }}" media="screen" type="text/css"/>
+	
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+	
+	{% block stylesheets %}{% endblock %}
+
+	<nav>
+		<div class="ui large fixed menu">
+			<div class="header item">
+				<a class="link" href="{{ path('index') }}" style="color: black;">
+					Plantilla
+				</a>
+			</div>
+			{% if is_granted('ROLE_ADMIN') %}
+			<div class="right menu">
+				<div class="item">
+					<a class="ui red button" href="{{ path('admin_logout') }}">Cerrar sesión</a>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</nav>
+</head>
+<body>
+	{% block body %}{% endblock %}
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('build/js/semantic.min.js') }}"></script>
+	<script type="text/javascript">
+		$('.ui.dropdown')
+			.dropdown()
+		;
+	</script>
+
+	{% block javascripts %}{% endblock %}
+</body>
+</html>
